@@ -1,12 +1,13 @@
 from django_ledger.models.accounts import AccountModel
-from django_ledger.models.coa import ChartOfAccountModel, make_account_active, get_acc_idx
+from django_ledger.models.coa import ChartOfAccountModel, make_account_active
 from django_ledger.models.coa_default import CHART_OF_ACCOUNTS
 from django_ledger.models.entity import EntityModel
 from django_ledger.models.utils import create_coa_structure
 
-RECREATE_COA = False
+RESET_DATABASE = False
 
-if RECREATE_COA:
+# USE WITH CAUTION!!!!, WILL DELETE ENTIRE DATABASE.
+if RESET_DATABASE:
     EntityModel.objects.all().delete()
     ChartOfAccountModel.objects.all().delete()
     AccountModel.objects.all().delete()
